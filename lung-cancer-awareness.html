@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathe Easy - Lung Cancer Awareness</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #0077b6;  /* Blue for awareness */
+            --secondary-color: #e63946;  /* Red for urgency */
+            --light-color: #f1faee;
+            --dark-color: #1d3557;
+            --accent-color: #a8dadc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .ribbon {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .donate-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .donate-btn:hover {
+            background-color: #c1121f;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background-color: white;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Info Sections */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Symptoms Section */
+        .symptoms {
+            background-color: var(--accent-color);
+        }
+        
+        .symptoms-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .symptoms-list ul {
+            columns: 2;
+            list-style-position: inside;
+        }
+        
+        .symptoms-list li {
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+        
+        /* Prevention Section */
+        .prevention-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .step h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-col a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .symptoms-list ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Ribbon -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Breathe <span>Easy</span></div>
+            <div class="tagline">Together in the fight against lung cancer</div>
+            <div class="ribbon">November is Lung Cancer Awareness Month</div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Breathe Easy</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#symptoms">Symptoms</a></li>
+                <li><a href="#prevention">Prevention</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#" class="donate-btn">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Early Detection Saves Lives</h1>
+            <p>Lung cancer is the leading cause of cancer deaths worldwide, but early detection can significantly improve outcomes. Learn the signs and take action today.</p>
+            <a href="#symptoms" class="cta-btn">Know the Symptoms</a>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2.1M</div>
+                <div class="stat-label">New cases diagnosed worldwide each year</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1.8M</div>
+                <div class="stat-label">Deaths from lung cancer annually</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">56%</div>
+                <div class="stat-label">5-year survival rate when detected early</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">80-90%</div>
+                <div class="stat-label">Linked to smoking, but non-smokers get it too</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>About Lung Cancer</h2>
+                <p>Lung cancer occurs when cells in the lungs grow uncontrollably, forming tumors that can spread to other parts of the body.</p>
+            </div>
+            
+            <div class="info-cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lung anatomy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Types of Lung Cancer</h3>
+                        <p>There are two main types: non-small cell lung cancer (NSCLC) which accounts for about 85% of cases, and small cell lung cancer (SCLC) which grows more quickly.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Risk factors">
+                    </div>
+                    <div class="card-content">
+                        <h3>Risk Factors</h3>
+                        <p>Smoking is the leading risk factor, but exposure to radon, air pollution, asbestos, and family history also play significant roles.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Diagnosis">
+                    </div>
+                    <div class="card-content">
+                        <h3>Diagnosis & Treatment</h3>
+                        <p>Diagnosis typically involves imaging tests and biopsies. Treatment options include surgery, chemotherapy, radiation, targeted therapy, and immunotherapy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Symptoms Section -->
+    <section class="section symptoms" id="symptoms">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Know the Symptoms</h2>
+                <p>Early lung cancer often has no symptoms, but as it progresses these signs may appear:</p>
+            </div>
+            
+            <div class="symptoms-list">
+                <ul>
+                    <li>A persistent cough that gets worse</li>
+                    <li>Coughing up blood or rust-colored phlegm</li>
+                    <li>Chest pain that worsens with deep breathing</li>
+                    <li>Hoarseness</li>
+                    <li>Loss of appetite</li>
+                    <li>Unexplained weight loss</li>
+                    <li>Shortness of breath</li>
+                    <li>Feeling tired or weak</li>
+                    <li>Infections like bronchitis that keep coming back</li>
+                    <li>New onset of wheezing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Prevention Section -->
+    <section class="section" id="prevention">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Prevention & Early Detection</h2>
+                <p>While not all lung cancers can be prevented, you can reduce your risk with these steps:</p>
+            </div>
+            
+            <div class="prevention-steps">
+                <div class="step">
+                    <div class="step-icon">🚭</div>
+                    <h3>Don't Smoke</h3>
+                    <p>If you smoke, quit. Avoid secondhand smoke. It's never too late to benefit from quitting.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">🏡</div>
+                    <h3>Test for Radon</h3>
+                    <p>Check your home for radon, an odorless gas that's the second leading cause of lung cancer.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">🏭</div>
+                    <h3>Avoid Carcinogens</h3>
+                    <p>Limit exposure to asbestos, diesel exhaust, and other workplace carcinogens.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">🥗</div>
+                    <h3>Eat Healthy</h3>
+                    <p>A diet rich in fruits and vegetables may help protect against lung cancer.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">🏥</div>
+                    <h3>Get Screened</h3>
+                    <p>If you're at high risk, talk to your doctor about low-dose CT screening.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Breathe Easy</h3>
+                <p>Dedicated to raising awareness, supporting research, and helping those affected by lung cancer.</p>
+                <div class="social-links">
+                    <a href="#">f</a>
+                    <a href="#">t</a>
+                    <a href="#">in</a>
+                    <a href="#">ig</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Lung Cancer</a></li>
+                    <li><a href="#symptoms">Symptoms</a></li>
+                    <li><a href="#prevention">Prevention</a></li>
+                    <li><a href="#stories">Patient Stories</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Get Help</h3>
+                <ul>
+                    <li><a href="#">Find a Specialist</a></li>
+                    <li><a href="#">Support Groups</a></li>
+                    <li><a href="#">Financial Assistance</a></li>
+                    <li><a href="#">Clinical Trials</a></li>
+                    <li><a href="#">Quit Smoking Help</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>1234 Health Avenue</li>
+                    <li>Medical City, MC 12345</li>
+                    <li>Phone: (800) 555-1234</li>
+                    <li>Email: info@breatheeasy.org</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Breathe Easy Lung Cancer Awareness. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
